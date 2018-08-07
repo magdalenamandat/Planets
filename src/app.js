@@ -5,4 +5,7 @@ const PlanetInfoView = require('./views/planet_info_view.js');
 document.addEventListener('DOMContentLoaded', () => {
   const planetsDataModel = new SolarSystem(planetsData);
   console.log(planetsDataModel.planets);
+planetsDataModel.bindEvents();
+
+
 });

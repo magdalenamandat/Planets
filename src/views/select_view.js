@@ -1,28 +1,15 @@
 const PubSub = require('../helpers/pub_sub.js');
 
-const SelectView = function(element){
-  this.element= element;
+const SelectPlanet = function(){
 };
 
-SelectView.prototype.bindEvents = function () {
-  PubSub.subscribe('SolarSystem:all-planets-ready', (evt) => {
-    const allPlanets = evt.detail;
-    this.populate(allPlanets);
-  });
-
-  this.element.addEventListener('change', (evt) =>{
-    const selectedIndex = evt.target.value;
-    PubSub.publish('SelectView:change', selectedIndex);
+SelectPlanet.prototype.bindEvents = function () {
+  const planet = document.querySelector('planets-menu');
+  planet.addEventListener('click', (evt) =>{
+    const planetId = evt.target.id;
+    PubSub.publish('InputView:planet-inputted', planetId);
   });
 };
 
-SelectView.prototype.populate = function (planetsData) {
-  planetsData.forEach((planet, index) =>{
-    const option = document.createElement('option');
-    option.textContent = planet.name;
-    option.value = index;
-    this.element.appendChild(option);
-  });
-};
 
 module.exports = SelectView;
