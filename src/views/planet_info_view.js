@@ -14,8 +14,12 @@ PlanetInfoView.prototype.bindEvents = function () {
 PlanetInfoView.prototype.render = function(planet){
   const infoParagraph = document.createElement('p');
   infoParagraph.textContent= `The ${planet.name}, has an orbit of ${planet.orbit}. Each day is equal to ${planet.day} Earth days. It has a surface area of ${planet.surfaceArea}, a volume of ${planet.volume}. Gravity of ${planet.gravity}N. It has ${planet.moons}`;
+
+  const planetPicture = document.createElement('img');
+  planetPicture.src = planet.image;
   this.container.innerHTML = '';
   this.container.appendChild(infoParagraph);
+  this.container.appendChild(planetPicture);
 }
 
 module.exports = PlanetInfoView;
