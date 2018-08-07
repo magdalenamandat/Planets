@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log(planetsDataModel.planets);
   planetsDataModel.bindEvents();
 
-
   const planetInfoSection = document.querySelector('.planet-details');
   const planetInfoDisplay = new PlanetInfoView(planetInfoSection);
   planetInfoDisplay.bindEvents();
@@ -17,10 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const selectPlanet = new SelectView(planetMenu);
   selectPlanet.bindEvents();
 
-
-
-
-  const planetDataSource = new SolarSystem();
+  const planetDataSource = new SolarSystem(planetsData);
   planetDataSource.bindEvents();
 
 

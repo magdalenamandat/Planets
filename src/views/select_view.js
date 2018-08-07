@@ -7,7 +7,7 @@ const SelectView = function(menu){
 SelectView.prototype.bindEvents = function () {
   this.menu.addEventListener('click', (evt) =>{
     const planetId = evt.target.id;
-    PubSub.publish('InputView:planet-inputted', planetId);
+    PubSub.publish('SelectView:selected-planet-ready', planetId);
   });
 };
 
